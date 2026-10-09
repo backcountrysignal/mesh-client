@@ -1,5 +1,5 @@
-appId: com.mesh-client.app
-productName: Mesh-client
+appId: org.meshhub.desktop
+productName: Mesh Hub
 protocols:
   - name: Mesh Client LXMF
     schemes:
@@ -44,7 +44,7 @@ mac:
   # Hardened runtime improves tamper resistance; required for notarized distribution.
   hardenedRuntime: true
   preAutoEntitlements: true
-  helperBundleId: com.mesh-client.app.helper
+  helperBundleId: org.meshhub.desktop.helper
   extendInfo:
     NSBluetoothAlwaysUsageDescription: 'Mesh-client needs Bluetooth to communicate with Meshtastic devices.'
     NSMicrophoneUsageDescription: 'Mesh-client needs the microphone for Reticulum LXST voice calls.'
@@ -93,7 +93,7 @@ linux:
   icon: resources/icons/linux/
   desktop:
     entry:
-      StartupWMClass: 'com.mesh-client.app'
+      StartupWMClass: 'org.meshhub.desktop'
       Categories: 'Utility;Network;'
   extraResources:
     - from: ./copyright

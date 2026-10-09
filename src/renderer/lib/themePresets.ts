@@ -7,9 +7,9 @@ export type InkStep = (typeof INK_STEPS)[number];
 export type InkScale = Record<InkStep, string>;
 
 export type ThemeSurfaceId =
-  'midnight' | 'slate' | 'zinc' | 'graphite' | 'deepSea' | 'dusk' | 'evergreen' | 'highContrast';
+  'signature' | 'midnight' | 'slate' | 'zinc' | 'graphite' | 'deepSea' | 'dusk' | 'evergreen' | 'highContrast';
 
-export type ThemeAccentId = 'meshtastic' | 'meshcore' | 'reticulum' | 'sky' | 'classic';
+export type ThemeAccentId = 'signature' | 'meshtastic' | 'meshcore' | 'reticulum' | 'sky' | 'classic';
 
 /** A neutral family: the values behind every `ink-*` class (`--color-ink-*`). */
 export interface ThemeSurface {
@@ -38,6 +38,11 @@ function scale(values: readonly string[]): InkScale {
  * passes the same text and border contrast pairs (`themePresets.test.ts`).
  */
 export const THEME_SURFACES: readonly ThemeSurface[] = [
+  {
+    id: 'signature',
+    labelKey: 'appPanel.themeSurfaces.graphite',
+    scale: scale(['#ffffff','#f4f4f4','#e2e2e2','#cccccc','#aaaaaa','#929292','#6e6e6e','#414141','#292929','#292929','#1b1b1b']),
+  },
   {
     id: 'midnight',
     labelKey: 'appPanel.themeSurfaces.midnight',
@@ -181,6 +186,7 @@ export const THEME_SURFACES: readonly ThemeSurface[] = [
 
 /** Accents are the protocol scales plus two extras; any accent pairs with any surface. */
 export const THEME_ACCENTS: readonly ThemeAccent[] = [
+  { id: 'signature', labelKey: 'appPanel.themeAccents.classic', base: '#ffa31a', fill: '#8a4900' },
   {
     id: 'meshtastic',
     labelKey: 'appPanel.themeAccents.meshtastic',
@@ -199,8 +205,8 @@ export const THEME_ACCENTS: readonly ThemeAccent[] = [
   { id: 'classic', labelKey: 'appPanel.themeAccents.classic', base: '#86efac', fill: '#15803d' },
 ];
 
-export const DEFAULT_THEME_SURFACE_ID: ThemeSurfaceId = 'midnight';
-export const DEFAULT_THEME_ACCENT_ID: ThemeAccentId = 'meshtastic';
+export const DEFAULT_THEME_SURFACE_ID: ThemeSurfaceId = 'signature';
+export const DEFAULT_THEME_ACCENT_ID: ThemeAccentId = 'signature';
 
 /** Which ink step each surface theme token takes. */
 const SURFACE_TOKEN_STEPS = {
